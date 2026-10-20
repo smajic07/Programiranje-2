@@ -1,0 +1,17 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "FIT: kompajliraj aktivni fajl",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "-std=c++17", "-g", "-Wall", "-Wno-sign-compare", "-pthread",
+                "-include", "${workspaceFolder}/Rjesenja/fit_mac.h",
+                "${file}", "-o", "${fileDirname}/program"
+            ],
+            "group": { "kind": "build", "isDefault": true },
+            "problemMatcher": ["$gcc"]
+        }
+    ]
+}

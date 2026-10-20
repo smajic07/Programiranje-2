@@ -1,0 +1,19 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "FIT: pokreni aktivni fajl",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${fileDirname}/program",
+            "cwd": "${fileDirname}",
+            "MIMode": "gdb",
+            "externalConsole": false,
+            "environment": [ { "name": "TZ", "value": "Europe/Sarajevo" } ],
+            "preLaunchTask": "FIT: kompajliraj aktivni fajl",
+            "setupCommands": [
+                { "text": "-enable-pretty-printing", "ignoreFailures": true }
+            ]
+        }
+    ]
+}
