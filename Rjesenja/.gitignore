@@ -5,3 +5,4 @@
 # privremene kopije i izvjestaji
 *_mac.cpp
 leaks_izvjestaj.txt
+*.o
