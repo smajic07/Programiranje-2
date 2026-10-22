@@ -17,6 +17,21 @@ using namespace std;
 
 int main() {
     // rjesenje ovdje
+int dan, mjesec, godina;
+    cin >> dan >> mjesec >> godina;
 
+    if (dan < 10) {
+        cout << "0" << dan << ".";
+    } else {
+        cout << dan << ".";
+    }
+
+    if (mjesec < 10) {
+        cout << "0" << mjesec << ".";
+    } else {
+        cout << mjesec << ".";
+    }
+
+    cout << godina << endl;
     return 0;
 }
