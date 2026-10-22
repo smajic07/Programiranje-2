@@ -18,6 +18,13 @@ using namespace std;
 
 int main() {
     // rjesenje ovdje
+int godina;
+    cin >> godina;
 
+    if ((godina % 4 == 0 && godina % 100 != 0) || (godina % 400 == 0)) {
+        cout << godina << " je prijestupna" << endl;
+    } else {
+        cout << godina << " nije prijestupna" << endl;
+    }
     return 0;
 }
