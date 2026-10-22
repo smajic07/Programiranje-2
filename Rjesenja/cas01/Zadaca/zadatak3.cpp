@@ -21,6 +21,20 @@ using namespace std;
 
 int main() {
     // rjesenje ovdje
+    double cijena;
+    int kategorija;
+
+    cin >> cijena >> kategorija;
+
+    if (kategorija == 2) {
+        cout << "Konacna cijena: " << cijena - (cijena * 0.10) << " KM" << endl;
+    } else if (kategorija == 1 || kategorija == 3 || kategorija == 4) {
+        cout << "Konacna cijena: " << cijena << " KM" << endl;
+    } else {
+        cout << "Nepostojeca kategorija, cijena bez popusta." << endl;
+        cout << "Konacna cijena: " << cijena << " KM" << endl;
+    }
 
     return 0;
+
 }
