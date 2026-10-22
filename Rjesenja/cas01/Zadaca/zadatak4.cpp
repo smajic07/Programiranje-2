@@ -8,14 +8,15 @@
     Ocekivani ispis:
         2 2.5 2.5
 
-    Odgovor:
-
+    Odgovor: Kad dijelimo dva cijelam broja, decimalni dio se brise i ostane nam samo cijeli broj.
+    A ako nam je bar jedan clan double ili float, decimalna vrijednost ostaje.
 */
 #include <iostream>
 using namespace std;
 
 int main() {
     // rjesenje ovdje
+    cout << 5 / 2 << " " << 5 / 2.0 << " " << (double)5 / 2 << endl;
 
     return 0;
 }
