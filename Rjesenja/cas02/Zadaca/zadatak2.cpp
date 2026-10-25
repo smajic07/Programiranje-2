@@ -18,8 +18,12 @@
 using namespace std;
 
 void IspisiTablicuMnozenja(int n = 10) {
-    // rjesenje ovdje
-
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= n; j++) {
+            cout << i * j << "\t";
+        }
+        cout << endl;
+    }
 }
 
 int main() {
