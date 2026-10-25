@@ -19,12 +19,36 @@
 #include <iostream>
 using namespace std;
 
-// ovdje prepisati IsPrestupna, BrojDanaUMjesecu i UkupnoDana sa casa
+bool IsPrestupna(int g) {
+    return (g % 4 == 0 && g % 100 != 0) || (g % 400 == 0);
+}
+
+int BrojDanaUMjesecu(int m, int g) {
+    if (m == 2) {
+        return IsPrestupna(g) ? 29 : 28;
+    }
+    if (m == 4 || m == 6 || m == 9 || m == 11) {
+        return 30;
+    }
+    return 31;
+}
+
+int UkupnoDana(int d, int m, int g) {
+    int ukupno = d;
+    for (int y = 1; y < g; y++) {
+        ukupno += IsPrestupna(y) ? 366 : 365;
+    }
+    for (int month = 1; month < m; month++) {
+        ukupno += BrojDanaUMjesecu(month, g);
+    }
+    return ukupno;
+}
 
 int RazlikaDana(int d1, int m1, int g1, int d2, int m2, int g2) {
-    // rjesenje ovdje
-
-    return 0;
+    int dni1 = UkupnoDana(d1, m1, g1);
+    int dni2 = UkupnoDana(d2, m2, g2);
+    int razlika = dni2 - dni1;
+    return (razlika < 0) ? -razlika : razlika;
 }
 
 int main() {
