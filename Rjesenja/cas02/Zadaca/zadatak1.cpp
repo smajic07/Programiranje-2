@@ -23,15 +23,23 @@
 using namespace std;
 
 int SumaCifara(int n) {
-    // rjesenje ovdje
-
-    return 0;
+    int suma = 0;
+    if (n < 0) n = -n;
+    while (n > 0) {
+        suma += n % 10;
+        n /= 10;
+    }
+    return suma;
 }
 
 bool IsProst(int n) {
-    // rjesenje ovdje
-
-    return false;
+    if (n <= 1) return false;
+    for (int i = 2; i * i <= n; i++) {
+        if (n % i == 0) {
+            return false;
+        }
+    }
+    return true;
 }
 
 int main() {
