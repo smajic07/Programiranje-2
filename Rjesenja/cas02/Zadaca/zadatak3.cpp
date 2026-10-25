@@ -21,15 +21,11 @@
 using namespace std;
 
 int Max(int a, int b) {
-    // rjesenje ovdje
-
-    return 0;
+    return (a > b) ? a : b;
 }
 
 double Max(double a, double b) {
-    // rjesenje ovdje
-
-    return 0;
+    return (a > b) ? a : b;
 }
 
 int main() {
