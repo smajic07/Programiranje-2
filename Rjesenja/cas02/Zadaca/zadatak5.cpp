@@ -12,7 +12,12 @@
     4. Kada se koristi const & (npr. const string&) umjesto kopije?
 
     Odgovor:
-
+    1. A dobije kopiju vrijednosti, B dobije referencu tj. 
+    original, C dobije konstantnu referencu.
+    2. Samo u slučaju B.
+    3. B(5) ne radi jer int& mora izmijeniti konkretnu varijablu iz memorije, a broj 5 nije varijabla.   
+    A(5) radi jer napravi novu kopiju broja 5, a C(5) radi jer const dozvoljava C++ da privremeno zapamti broj 5 bez prava izmjene.
+    4. Kada želimo izbjeći bespotrebno kopiranje velikih objekata, a kada zelimo osigurati da funkcija ne može promijeniti podatke.
 */
 #include <iostream>
 using namespace std;
@@ -24,10 +29,10 @@ void C(const int& x) { cout << x << endl; }
 int main() {
     int a = 5;
     A(a);
-    cout << a << endl;   // ocekujem:
+    cout << a << endl;   // ocekujem: 5
     B(a);
-    cout << a << endl;   // ocekujem:
-    C(a);                // ocekujem:
+    cout << a << endl;   // ocekujem: 6
+    C(a);                // ocekujem: 6
     // B(5);             // otkomentarisati na kraju
     return 0;
 }
