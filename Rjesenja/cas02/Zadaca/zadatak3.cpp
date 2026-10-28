@@ -31,6 +31,6 @@ double Max(double a, double b) {
 int main() {
     cout << Max(3, 8) << endl;        // 8
     cout << Max(2.5, 1.5) << endl;    // 2.5
-    // cout << Max(3, 2.5) << endl;   // otkomentarisati na kraju
+    cout << Max(3.0, 2.5) << endl;   // otkomentarisati na kraju
     return 0;
 }
