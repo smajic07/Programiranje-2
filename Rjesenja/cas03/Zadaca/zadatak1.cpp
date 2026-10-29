@@ -24,15 +24,21 @@ void Ispisi(int niz[], int n) {
 }
 
 bool Postoji(int niz[], int trenutno, int vrijednost) {
-    // rjesenje ovdje
-
+    for (int i = 0; i < trenutno; i++) {
+        if (niz[i] == vrijednost) {
+            return true;
+        }
+    }
     return false;
 }
 
 bool Dodaj(int niz[], int& trenutno, int vrijednost) {
-    // rjesenje ovdje
-
-    return false;
+    if (trenutno == MAX || Postoji(niz, trenutno, vrijednost)) {
+        return false;
+    }
+    niz[trenutno] = vrijednost;
+    trenutno++;
+    return true;
 }
 
 int main() {
