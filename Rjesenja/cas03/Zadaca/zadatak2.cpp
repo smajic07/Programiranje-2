@@ -24,8 +24,17 @@ void Ispisi(int niz[], int n) {
 }
 
 void UkloniDuplikate(int niz[], int& trenutno) {
-    // rjesenje ovdje
-
+    for (int i = 0; i < trenutno; i++) {
+        for (int j = i + 1; j < trenutno; j++) {
+            if (niz[i] == niz[j]) {
+                for (int k = j; k < trenutno - 1; k++) {
+                    niz[k] = niz[k + 1];
+                }
+                trenutno--;
+                j--;
+            }
+        }
+    }
 }
 
 int main() {
