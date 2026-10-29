@@ -25,20 +25,30 @@ using namespace std;
 const int MAX = 20;
 
 bool DodajPar(int sifre[], double cijene[], int& trenutno, int sifra, double cijena) {
-    // rjesenje ovdje
-
-    return false;
+    if (trenutno == MAX) {
+        return false;
+    }
+    sifre[trenutno] = sifra;
+cijene[trenutno] = cijena;
+    trenutno++;
+    return true;
 }
 
 void IspisiParove(int sifre[], double cijene[], int trenutno) {
-    // rjesenje ovdje
-
+    for (int i = 0; i < trenutno; i++) {
+        cout << sifre[i] << " - " << cijene[i] << " KM" << endl;
+    }
 }
 
 int IndeksNajskupljeg(double cijene[], int trenutno) {
-    // rjesenje ovdje
-
-    return 0;
+    if (trenutno <= 0) return -1;
+    int maxIndeks = 0;
+    for (int i = 1; i < trenutno; i++) {
+        if (cijene[i] > cijene[maxIndeks]) {
+            maxIndeks = i;
+        }
+    }
+    return maxIndeks;
 }
 
 int main() {
