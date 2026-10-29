@@ -20,8 +20,9 @@ enum Kategorija { ELEKTRONIKA, KNJIGE, MODA, PREHRANA };
 const char* KategorijaNazivi[] = { "ELEKTRONIKA", "KNJIGE", "MODA", "PREHRANA" };
 
 void IspisiKategorije() {
-    // rjesenje ovdje
-
+    for (int i = ELEKTRONIKA; i <= PREHRANA; i++) {
+        cout << i << ": " << KategorijaNazivi[i] << endl;
+    }
 }
 
 int main() {
