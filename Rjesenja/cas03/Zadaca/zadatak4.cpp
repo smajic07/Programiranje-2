@@ -51,6 +51,14 @@ int IndeksNajskupljeg(double cijene[], int trenutno) {
     return maxIndeks;
 }
 
+struct SifraCijenaObj {
+    int sifra;
+    double cijena;
+};
+
+const SifraCijenaObj sifre_i_cijene[2];
+// [{ sifra: 3212, cijena: 1321312321 }, { sifra: 2, cijena: 12321 }]
+
 int main() {
     int sifre[MAX] = {};
     double cijene[MAX] = {};
