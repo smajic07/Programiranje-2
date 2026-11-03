@@ -15,14 +15,21 @@
     Koristiti: tekst.find(rijec, odPozicije) u petlji.
     find vraca string::npos kad vise nema pojavljivanja.
 */
+
+
 #include <iostream>
 #include <string>
 using namespace std;
 
 int BrojPojavljivanja(const string& tekst, const string& rijec) {
-    // rjesenje ovdje
-
-    return 0;
+    if (rijec.empty()) return 0;
+    int brojac = 0;
+    size_t poz = 0;
+    while ((poz = tekst.find(rijec, poz)) != string::npos) {
+        brojac++;
+        poz += rijec.length();
+    }
+    return brojac;
 }
 
 int main() {
