@@ -18,9 +18,19 @@
 using namespace std;
 
 string GenerisiID(int broj) {
-    // rjesenje ovdje
-
-    return "";
+    string s = to_string(broj);
+    string rez = "ID#";
+    int len = s.length();
+    if (len < 4) {
+        for (int i = 0; i < 4 - len; ++i) {
+            rez += '0';
+        }
+        rez += '-';
+        rez += s;
+    } else {
+        rez += s;
+    }
+    return rez;
 }
 
 int main() {
