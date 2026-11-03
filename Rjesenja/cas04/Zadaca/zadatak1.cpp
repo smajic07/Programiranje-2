@@ -22,9 +22,26 @@
 using namespace std;
 
 string GenerisiSifru(string imePrezime, int id) {
-    // rjesenje ovdje
+    char prvoSlovo = toupper(imePrezime[0]);
+    size_t razmak = imePrezime.find(' ');
+    char drugoSlovo = '?';
+    if (razmak != string::npos && razmak + 1 < imePrezime.length()) {
+        drugoSlovo = toupper(imePrezime[razmak + 1]);
+    }
 
-    return "";
+    string idStr = to_string(id);
+    string nnn = "";
+    if (idStr.length() == 1) nnn = "00" + idStr;
+    else if (idStr.length() == 2) nnn = "0" + idStr;
+    else nnn = idStr;
+
+    string rez = "";
+    rez += prvoSlovo;
+    rez += drugoSlovo;
+    rez += ":2025-";
+    rez += nnn;
+
+    return rez;
 }
 
 int main() {
