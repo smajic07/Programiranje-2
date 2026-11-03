@@ -20,8 +20,31 @@
 using namespace std;
 
 void Inicijali(const char* imePrezime, char rezultat[3]) {
-    // rjesenje ovdje
+    rezultat[0] = '?';
+    rezultat[1] = '?';
+    rezultat[2] = '\0';
 
+    if (imePrezime == nullptr) return;
+
+    bool pronadjenPrvi = false;
+    bool pronadjenDrugi = false;
+
+    for (int i = 0; imePrezime[i] != '\0'; ++i) {
+        if (imePrezime[i] != ' ') {
+            if (!pronadjenPrvi) {
+                rezultat[0] = toupper(imePrezime[i]);
+                pronadjenPrvi = true;
+            } else if (!pronadjenDrugi && i > 0 && imePrezime[i - 1] == ' ') {
+                rezultat[1] = toupper(imePrezime[i]);
+                pronadjenDrugi = true;
+                break;
+            }
+        }
+    }
+
+    if (!pronadjenDrugi) {
+        rezultat[1] = '?';
+    }
 }
 
 int main() {
