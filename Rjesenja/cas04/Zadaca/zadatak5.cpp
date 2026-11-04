@@ -47,13 +47,36 @@ void Inicijali(const char* imePrezime, char rezultat[3]) {
     }
 }
 
+void Inicijali2(const char* imePrezime, char rezultat[3]) {
+    rezultat[0] = '?';
+    rezultat[1] = '?';
+    rezultat[2] = '\0';
+
+    if (imePrezime == nullptr || imePrezime[0] == '\0') return;
+
+    rezultat[0] = toupper(imePrezime[0]);
+
+    int indexRazmaka = -1;
+
+    for (int i = 1; imePrezime[i] != '\0'; ++i) {
+        if (imePrezime[i] == ' ') {
+            indexRazmaka = i;
+            break;
+        }
+    }
+
+    if (indexRazmaka != -1 && imePrezime[indexRazmaka + 1] != '\0') {
+        rezultat[1] = toupper(imePrezime[indexRazmaka + 1]);
+    }
+}
+
 int main() {
     char in[3] = "";
-    Inicijali("Amina Buric", in);
+    Inicijali2("Amina Buric", in);
     cout << in << endl;          // AB
-    Inicijali("amar macic", in);
+    Inicijali2("amar macic", in);
     cout << in << endl;          // AM
-    Inicijali("Madonna", in);
+    Inicijali2("Madonna", in);
     cout << in << endl;          // M?
     return 0;
 }
