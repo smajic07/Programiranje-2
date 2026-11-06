@@ -17,10 +17,10 @@ int main() {
     int a = 1, b = 2, c = 3;
     int* p = &a;
     int* q = &c;
-    cout << *p + *q << endl;              // ocekujem:
+    cout << *p + *q << endl;              // ocekujem: 4
     *q = 7;
     p = q;
     *p = *p + b;
-    cout << a << " " << b << " " << c << endl;   // ocekujem:
+    cout << a << " " << b << " " << c << endl;   // ocekujem: 1 2 9
     return 0;
 }
