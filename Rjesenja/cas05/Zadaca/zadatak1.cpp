@@ -14,23 +14,27 @@
 
 */
 #include <iostream>
+
 using namespace std;
 
 void ZamijeniP(int* a, int* b) {
-    // rjesenje ovdje
-
+    if (!a || !b) return;
+    int temp = *a;
+    *a = *b;
+    *b = temp;
 }
 
 void ZamijeniR(int& a, int& b) {
-    // rjesenje ovdje
-
+    int temp = a;
+    a = b;
+    b = temp;
 }
 
 int main() {
     int x = 3, y = 9;
-    ZamijeniP(&x, &y);               // saljemo adrese
+    ZamijeniP(&x, &y);                  // saljemo adrese
     cout << x << " " << y << endl;   // 9 3
-    ZamijeniR(x, y);                 // saljemo varijable
+    ZamijeniR(x, y);                   // saljemo varijable
     cout << x << " " << y << endl;   // 3 9
     ZamijeniP(nullptr, &y);          // ne smije pasti
     cout << x << " " << y << endl;   // 3 9
