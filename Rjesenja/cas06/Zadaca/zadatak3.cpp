@@ -17,17 +17,18 @@ using namespace std;
 
 int main() {
     int* a = new int(5);
+    delete a; // Memory Leak: Pokazivač a je prepisan sa novom alokacijom prije nego što je stara oslobođena, pa se gubi adresa memorije sa vrijednošću 5.
     a = new int(6);
     cout << *a << endl;
 
     int* b = new int(7);
     delete b;
-    cout << *b << endl;
+    cout << *b << endl; // Viseći pokazivač: Pristupa se memoriji na koju b još uvijek pokazuje iako je ta memorija obrisana.
 
     int* niz = new int[10];
     for (int i = 0; i < 10; i++) niz[i] = i * i;
     cout << niz[9] << endl;
-    delete niz;
+    delete[] niz; // Pogrešno brisanje niza: Korištenjem običnog delete umjesto delete[] niz dolazi do nedefinisanog ponašanja jer je memorija alocirana sa new[]
 
     delete a;
     return 0;
