@@ -17,18 +17,20 @@
 using namespace std;
 
 char* AlocirajTekst(const char* tekst) {
-    // rjesenje ovdje
-
-    return nullptr;
+    if (tekst == nullptr) return nullptr;
+    int duzina = strlen(tekst);
+    char* noviTekst = new char[duzina + 1];
+    strcpy(noviTekst, tekst);
+    return noviTekst;
 }
 
 int main() {
     char* t1 = AlocirajTekst("Programiranje II");
     char* t2 = AlocirajTekst("");
     char* t3 = AlocirajTekst(nullptr);
-    if (t1 != nullptr) cout << t1 << " " << strlen(t1) << endl;           // Programiranje II 16
+    if (t1 != nullptr) cout << t1 << " " << strlen(t1) << endl;          // Programiranje II 16
     if (t2 != nullptr) cout << "[" << t2 << "] " << strlen(t2) << endl;   // [] 0
-    cout << (t3 == nullptr) << endl;                                       // 1
+    cout << (t3 == nullptr) << endl;                                      // 1
     delete[] t1;
     delete[] t2;
     return 0;
