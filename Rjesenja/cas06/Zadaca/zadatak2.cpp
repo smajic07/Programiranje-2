@@ -33,20 +33,31 @@ using namespace std;
 const int MAX = 10;
 
 char* AlocirajTekst(const char* tekst) {
-    // rjesenje ovdje (prepisi svoje iz zadatka 1)
-
-    return nullptr;
+    if (tekst == nullptr) return nullptr;
+    int duzina = strlen(tekst);
+    char* noviTekst = new char[duzina + 1];
+    strcpy(noviTekst, tekst);
+    return noviTekst;
 }
 
 int UcitajImena(char* imena[], int max) {
-    // rjesenje ovdje
-
-    return 0;
+    int n;
+    cin >> n;
+    cin.ignore();
+    if (n > max) n = max;
+    for (int i = 0; i < n; i++) {
+        char unos[100];
+        cin.getline(unos, 100);
+        imena[i] = AlocirajTekst(unos);
+    }
+    return n;
 }
 
 void ObrisiImena(char* imena[], int n) {
-    // rjesenje ovdje
-
+    for (int i = 0; i < n; i++) {
+        delete[] imena[i];
+        imena[i] = nullptr;
+    }
 }
 
 int main() {
