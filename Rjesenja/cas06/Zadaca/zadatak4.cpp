@@ -20,16 +20,21 @@
 using namespace std;
 
 char* Spoji(const char* a, const char* b) {
-    // rjesenje ovdje
-
-    return nullptr;
+    if (a == nullptr || b == nullptr) return nullptr;
+    int duzinaA = strlen(a);
+    int duzinaB = strlen(b);
+    char* rezultat = new char[duzinaA + duzinaB + 2];
+    strcpy_s(rezultat, duzinaA + duzinaB + 2, a);
+    strcat_s(rezultat, duzinaA + duzinaB + 2, " ");
+    strcat_s(rezultat, duzinaA + duzinaB + 2, b);
+    return rezultat;
 }
 
 int main() {
     char* s1 = Spoji("Amina", "Buric");
     char* s2 = Spoji("FIT", "Mostar");
     char* s3 = Spoji(nullptr, "x");
-    if (s1 != nullptr) cout << s1 << endl;                       // Amina Buric
+    if (s1 != nullptr) cout << s1 << endl;                      // Amina Buric
     if (s2 != nullptr) cout << s2 << " " << strlen(s2) << endl;  // FIT Mostar 10
     cout << (s3 == nullptr) << endl;                             // 1
     delete[] s1;
