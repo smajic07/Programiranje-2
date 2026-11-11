@@ -22,20 +22,25 @@ void Ispisi(int niz[], int n) {
 }
 
 int* NadjiMax(int* niz, int n) {
-    // rjesenje ovdje
-
-    return nullptr;
+    if (n <= 0 || niz == nullptr) return nullptr;
+    int* pMax = &niz[0];
+    for (int i = 1; i < n; i++) {
+        if (niz[i] > *pMax) {
+            pMax = &niz[i];
+        }
+    }
+    return pMax;
 }
 
 int main() {
     int niz[5] = { 4, 17, 8, 17, 2 };
     int* p = NadjiMax(niz, 5);
     if (p != nullptr) {
-        cout << *p << endl;                       // 17
-        cout << (p == &niz[1]) << endl;           // 1: pokazuje na PRVU 17-icu
+        cout << *p << endl;                      // 17
+        cout << (p == &niz[1]) << endl;          // 1: pokazuje na PRVU 17-icu
         *p = 0;
     }
-    Ispisi(niz, 5);                               // 4 0 8 17 2
+    Ispisi(niz, 5);                                // 4 0 8 17 2
     cout << (NadjiMax(niz, 0) == nullptr) << endl;   // 1: prazan niz
     return 0;
 }
