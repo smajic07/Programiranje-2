@@ -23,10 +23,11 @@ char* Spoji(const char* a, const char* b) {
     if (a == nullptr || b == nullptr) return nullptr;
     int duzinaA = strlen(a);
     int duzinaB = strlen(b);
-    char* rezultat = new char[duzinaA + duzinaB + 2];
-    strcpy_s(rezultat, duzinaA + duzinaB + 2, a);
-    strcat_s(rezultat, duzinaA + duzinaB + 2, " ");
-    strcat_s(rezultat, duzinaA + duzinaB + 2, b);
+    int ukpDuzina = duzinaA + duzinaB + 2;
+    char* rezultat = new char[ukpDuzina];
+    strcpy_s(rezultat, ukpDuzina, a);
+    strcat_s(rezultat, ukpDuzina, " ");
+    strcat_s(rezultat, ukpDuzina, b);
     return rezultat;
 }
 
