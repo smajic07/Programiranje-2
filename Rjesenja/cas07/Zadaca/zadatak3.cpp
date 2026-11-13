@@ -16,18 +16,21 @@
 using namespace std;
 
 void IspisiOblik1(int niz[], int n) {
-    // rjesenje ovdje
-
+    for (int i = 0; i < n; i++)
+        cout << niz[i] << " ";
+    cout << endl;
 }
 
 void IspisiOblik2(int* niz[], int n) {
-    // rjesenje ovdje
-
+    for (int i = 0; i < n; i++)
+        cout << *niz[i] << " ";
+    cout << endl;
 }
 
 void IspisiOblik3(int* niz, int n) {
-    // rjesenje ovdje
-
+    for (int i = 0; i < n; i++)
+        cout << niz[i] << " ";
+    cout << endl;
 }
 
 int main() {
