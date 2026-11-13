@@ -57,9 +57,42 @@ void ObrisiSve() {
 }
 
 bool Ukloni(int sifra) {
-    // rjesenje ovdje
+    int indeks = -1;
+    for (int i = 0; i < trenutno; i++) {
+        if (sifre[i] == sifra) {
+            indeks = i;
+            break;
+        }
+    }
+    if (indeks == -1) return false;
 
-    return false;
+    if (trenutno == 1) {
+        delete[] sifre;
+        delete[] nazivi;
+        sifre = nullptr;
+        nazivi = nullptr;
+        trenutno = 0;
+        return true;
+    }
+
+    int* tempS = new int[trenutno - 1];
+    string* tempN = new string[trenutno - 1];
+
+    for (int i = 0, j = 0; i < trenutno; i++) {
+        if (i != indeks) {
+            tempS[j] = sifre[i];
+            tempN[j] = nazivi[i];
+            j++;
+        }
+    }
+
+    delete[] sifre;
+    delete[] nazivi;
+    sifre = tempS;
+    nazivi = tempN;
+    trenutno--;
+
+    return true;
 }
 
 int main() {
@@ -67,9 +100,9 @@ int main() {
     Dodaj(102, "Mis");
     Dodaj(103, "Tastatura");
     Dodaj(104, "Monitor");
-    cout << Ukloni(102) << endl;     // 1
+    cout << Ukloni(102) << endl;    // 1
     Ispisi();                        // 101 - Laptop, 103 - Tastatura, 104 - Monitor
-    cout << Ukloni(999) << endl;     // 0: nema te sifre
+    cout << Ukloni(999) << endl;    // 0: nema te sifre
     cout << Ukloni(101) << Ukloni(104) << Ukloni(103) << endl;   // 111
     cout << trenutno << " " << (sifre == nullptr) << endl;      // 0 1
     ObrisiSve();
