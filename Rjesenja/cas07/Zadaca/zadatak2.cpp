@@ -39,24 +39,38 @@ void ObrisiSve() {
 }
 
 bool DodajNaPoziciju(int pozicija, int vrijednost) {
-    // rjesenje ovdje
+    if (trenutno == MAX || pozicija < 0 || pozicija > trenutno)
+        return false;
 
-    return false;
+    for (int i = trenutno; i > pozicija; i--) {
+        elementi[i] = elementi[i - 1];
+    }
+    elementi[pozicija] = new int(vrijednost);
+    trenutno++;
+    return true;
 }
 
 bool UkloniSaPozicije(int pozicija) {
-    // rjesenje ovdje
+    if (pozicija < 0 || pozicija >= trenutno)
+        return false;
 
-    return false;
+    delete elementi[pozicija];
+
+    for (int i = pozicija; i < trenutno - 1; i++) {
+        elementi[i] = elementi[i + 1];
+    }
+    elementi[trenutno - 1] = nullptr;
+    trenutno--;
+    return true;
 }
 
 int main() {
     DodajNaPoziciju(0, 10);
     DodajNaPoziciju(1, 30);
     DodajNaPoziciju(1, 20);
-    Ispisi();                                  // 10 20 30
+    Ispisi();                                    // 10 20 30
     UkloniSaPozicije(0);
-    Ispisi();                                  // 20 30
+    Ispisi();                                    // 20 30
     cout << DodajNaPoziciju(5, 99) << endl;    // 0: pozicija van granica
     cout << UkloniSaPozicije(7) << endl;       // 0
     cout << (elementi[2] == nullptr) << endl;  // 1: zadnje mjesto oslobodjeno
