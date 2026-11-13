@@ -65,7 +65,7 @@ bool Ukloni(int sifra) {
         }
     }
     if (indeks == -1) return false;
-
+    // sifru smo pronasli, na nekom je indeksu i != -1 i i < trenutno i i >= 0
     if (trenutno == 1) {
         delete[] sifre;
         delete[] nazivi;
@@ -74,7 +74,7 @@ bool Ukloni(int sifra) {
         trenutno = 0;
         return true;
     }
-
+    // ovdje sad znamo da je trenutno >= 2
     int* tempS = new int[trenutno - 1];
     string* tempN = new string[trenutno - 1];
 
@@ -100,6 +100,7 @@ int main() {
     Dodaj(102, "Mis");
     Dodaj(103, "Tastatura");
     Dodaj(104, "Monitor");
+    Ispisi();
     cout << Ukloni(102) << endl;    // 1
     Ispisi();                        // 101 - Laptop, 103 - Tastatura, 104 - Monitor
     cout << Ukloni(999) << endl;    // 0: nema te sifre

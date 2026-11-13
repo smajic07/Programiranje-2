@@ -1,0 +1,19 @@
+Cas 8, zadatak 2: citanje ispita (bez kodiranja)
+
+Otvoriti postavku ispita (u Explorer-u lijevo):
+    Ispiti/2025-09-01/PR2_2025-09-01_G1_Postavka.cpp
+ili iz terminala, iz ovog foldera:
+    code ../../../Ispiti/2025-09-01/PR2_2025-09-01_G1_Postavka.cpp
+
+Citati od vrha fajla do klase Proizvod (ukljucujuci nju). Do 95 linije ukljucujuci i nju.
+Ispod upisati:
+- JASNO: sve sto prepoznajes sa casova 1-8, jedan red po stvari:
+  broj reda, sta je to i sa kojeg casa je poznato.
+  Primjer:  red NN: char* AlocirajTekst(const char*) - cas 6, kopija teksta na heapu
+- NIJE JASNO: sve sto ne razumijes, kao pitanje. Odgovaramo na casu 9.
+
+JASNO:
+- 
+
+NIJE JASNO (pitanja):
+- 

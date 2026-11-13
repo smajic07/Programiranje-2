@@ -39,7 +39,7 @@ void ObrisiSve() {
 }
 
 bool DodajNaPoziciju(int pozicija, int vrijednost) {
-    if (trenutno == MAX || pozicija < 0 || pozicija > trenutno)
+    if (trenutno == MAX || pozicija < 0 || pozicija >= trenutno)
         return false;
 
     for (int i = trenutno; i > pozicija; i--) {
@@ -54,25 +54,31 @@ bool UkloniSaPozicije(int pozicija) {
     if (pozicija < 0 || pozicija >= trenutno)
         return false;
 
+    // 0, 1, 2, 3, 4, 5 // 6
     delete elementi[pozicija];
+    elementi[pozicija] = nullptr;
 
+    // 0, 1, 2, nullptr, 4, 5
     for (int i = pozicija; i < trenutno - 1; i++) {
         elementi[i] = elementi[i + 1];
-    }
+    } 
+    // 0, 1, 2, 4, 5, nullptr // 3
+
+    delete elementi[trenutno - 1];
     elementi[trenutno - 1] = nullptr;
     trenutno--;
     return true;
 }
 
 int main() {
-    DodajNaPoziciju(0, 10);
-    DodajNaPoziciju(1, 30);
-    DodajNaPoziciju(1, 20);
+    DodajNaPoziciju(0, 10); // 10
+    DodajNaPoziciju(1, 30); // 10 30
+    DodajNaPoziciju(1, 20); // 10 20 30
     Ispisi();                                    // 10 20 30
-    UkloniSaPozicije(0);
-    Ispisi();                                    // 20 30
-    cout << DodajNaPoziciju(5, 99) << endl;    // 0: pozicija van granica
-    cout << UkloniSaPozicije(7) << endl;       // 0
+    UkloniSaPozicije(0); // 20 30
+    Ispisi();                                    // 20 30 -> 2 duzina
+    cout << DodajNaPoziciju(5, 99) << endl;    // 0: pozicija van granica jer je 2 duzina
+    cout << UkloniSaPozicije(7) << endl;       // 0: pozicija van granica jer je 2 duzina
     cout << (elementi[2] == nullptr) << endl;  // 1: zadnje mjesto oslobodjeno
     ObrisiSve();
     return 0;
